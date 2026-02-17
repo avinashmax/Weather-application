@@ -15,7 +15,7 @@ const Forecast = ({ data }) => {
                 <div className="h-px flex-1 mx-4 bg-white/10" />
             </div>
 
-            <div className="grid-mobile-scroll">
+            <div className="grid-3-col">
                 {data.forecast.forecastday.map((day, i) => (
                     <motion.div
                         key={day.date}

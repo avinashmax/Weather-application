@@ -284,7 +284,7 @@ body {
   z-index: 5 !important;
 }
 
-/* Force horizontal metrics grid with high specificity */
+/* Standard Grids for Desktop */
 .metrics-grid {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr) !important;
@@ -292,11 +292,20 @@ body {
   width: 100% !important;
 }
 
-.metric-card {
-  min-width: 0 !important;
+.grid-3-col {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
 }
 
-/* Force horizontal layouts for advanced features */
+.grid-7-col {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 1rem !important;
+  width: 100% !important;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none !important;
 }
@@ -306,7 +315,6 @@ body {
   scrollbar-width: none !important;
 }
 
-/* Ensure cards don't squash in horizontal flow */
 .glass-card {
   min-width: 0;
 }
@@ -362,8 +370,8 @@ body {
     border-radius: 20px !important;
   }
 
-  /* Force grid components to scroll on mobile if they have many items */
-  .grid-mobile-scroll {
+  .grid-3-col,
+  .grid-7-col {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -374,11 +382,13 @@ body {
     scrollbar-width: none;
   }
 
-  .grid-mobile-scroll::-webkit-scrollbar {
+  .grid-3-col::-webkit-scrollbar,
+  .grid-7-col::-webkit-scrollbar {
     display: none;
   }
 
-  .grid-mobile-scroll>* {
+  .grid-3-col>*,
+  .grid-7-col>* {
     min-width: 200px !important;
     flex-shrink: 0 !important;
   }

@@ -33,7 +33,7 @@ const EnvironmentalPanel = ({ current, astronomy }) => {
     ];
 
     return (
-        <div className="w-full grid-mobile-scroll">
+        <div className="w-full grid-3-col">
             {/* Air Quality Card */}
             <div className="glass-card !p-6 flex flex-col justify-between">
                 <div className="flex items-center justify-between mb-4">
