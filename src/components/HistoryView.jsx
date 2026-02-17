@@ -13,8 +13,8 @@ const HistoryView = ({ data }) => {
 
     const getChartPoints = () => {
         return temps.map((temp, i) => {
-            const x = 15 + (i / (data.length - 1)) * 70; // Centered 70% span (from 15 to 85)
-            const y = 80 - ((temp - minTemp) / range) * 60;
+            const x = 100 + (i / (data.length - 1)) * 800; // Map to 100-900 (80% span)
+            const y = 75 - ((temp - minTemp) / range) * 50; // Map to 25-75 vertical
             return `${x},${y}`;
         }).join(' ');
     };
@@ -29,11 +29,15 @@ const HistoryView = ({ data }) => {
             <div className="glass-card p-8 min-h-[300px] relative overflow-hidden bg-white/[0.02]">
                 <div className="flex items-center gap-3 mb-6">
                     <Thermometer className="text-accent-primary" size={24} />
-                    <h3 className="text-lg font-bold tracking-tight uppercase">Temp Trend</h3>
+                    <h3 className="text-base font-black uppercase tracking-widest text-white/60">Temp Trend</h3>
                 </div>
 
-                <div className="relative h-40 w-full mt-4">
-                    <svg className="w-full h-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <div className="relative h-44 w-full mt-4">
+                    <svg
+                        className="w-full h-full overflow-visible"
+                        viewBox="0 0 1000 100"
+                        preserveAspectRatio="none"
+                    >
                         <defs>
                             <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="var(--accent-primary)" stopOpacity="0.4" />
@@ -43,7 +47,7 @@ const HistoryView = ({ data }) => {
 
                         {/* Area under line */}
                         <path
-                            d={`M 15,100 L ${getChartPoints()} L 85,100 Z`}
+                            d={`M 100,100 L ${getChartPoints()} L 900,100 Z`}
                             fill="url(#chartGradient)"
                             className="transition-all duration-1000"
                         />
@@ -56,30 +60,30 @@ const HistoryView = ({ data }) => {
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
+                            vectorEffect="non-scaling-stroke"
                             className="drop-shadow-[0_0_8px_var(--accent-primary)]"
                         />
 
                         {/* Data Points and Labels */}
                         {temps.map((temp, i) => {
-                            const x = 15 + (i / (data.length - 1)) * 70;
-                            const y = 80 - ((temp - minTemp) / range) * 60;
+                            const x = 100 + (i / (data.length - 1)) * 800;
+                            const y = 75 - ((temp - minTemp) / range) * 50;
                             return (
                                 <g key={i}>
                                     <circle
                                         cx={x}
                                         cy={y}
-                                        r="2.5"
+                                        r="6"
                                         fill="white"
                                         stroke="var(--accent-primary)"
-                                        strokeWidth="1.5"
+                                        strokeWidth="4"
                                     />
                                     <text
                                         x={x}
-                                        y={y - 8}
+                                        y={y - 12}
                                         textAnchor="middle"
                                         fill="white"
-                                        className="text-[10px] font-black font-sans"
-                                        style={{ fontSize: '6px' }}
+                                        style={{ fontSize: '10px', fontWeight: '900', fontFamily: 'Outfit, sans-serif' }}
                                     >
                                         {Math.round(temp)}°
                                     </text>
@@ -88,8 +92,7 @@ const HistoryView = ({ data }) => {
                                         y="105"
                                         textAnchor="middle"
                                         fill="rgba(255,255,255,0.4)"
-                                        className="text-[8px] font-bold uppercase tracking-widest"
-                                        style={{ fontSize: '5px' }}
+                                        style={{ fontSize: '8px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em' }}
                                     >
                                         {new Date(data[i].forecast.forecastday[0].date).toLocaleDateString(undefined, { weekday: 'short' })}
                                     </text>
