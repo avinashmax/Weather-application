@@ -15,14 +15,7 @@ const Forecast = ({ data }) => {
                 <div className="h-px flex-1 mx-4 bg-white/10" />
             </div>
 
-            <div
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: '1.5rem',
-                    width: '100%'
-                }}
-            >
+            <div className="grid-mobile-scroll">
                 {data.forecast.forecastday.map((day, i) => (
                     <motion.div
                         key={day.date}

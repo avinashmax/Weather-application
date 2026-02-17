@@ -33,14 +33,7 @@ const EnvironmentalPanel = ({ current, astronomy }) => {
     ];
 
     return (
-        <div
-            className="w-full"
-            style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '1.5rem'
-            }}
-        >
+        <div className="w-full grid-mobile-scroll">
             {/* Air Quality Card */}
             <div className="glass-card !p-6 flex flex-col justify-between">
                 <div className="flex items-center justify-between mb-4">

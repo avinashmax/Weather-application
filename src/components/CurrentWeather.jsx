@@ -80,11 +80,6 @@ const CurrentWeather = ({ data }) => {
             <motion.div
                 variants={item}
                 className="metrics-grid w-full"
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
-                    gap: '1rem'
-                }}
             >
                 {metrics.map((m) => (
                     <div key={m.label} className="glass-card metric-card flex flex-col items-center text-center !p-4 gap-2">

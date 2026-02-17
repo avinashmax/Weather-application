@@ -104,14 +104,7 @@ const HistoryView = ({ data }) => {
             </div>
 
             {/* Grid of Days */}
-            <div
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(7, 1fr)',
-                    gap: '1rem',
-                    width: '100%'
-                }}
-            >
+            <div className="grid-mobile-scroll">
                 {data.map((dayData, i) => {
                     const day = dayData.forecast.forecastday[0];
                     return (
