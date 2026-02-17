@@ -38,10 +38,10 @@ const SportsEvents = ({ sports }) => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: index * 0.05 }}
-                        className="glass-card !p-5 min-w-[300px] flex-shrink-0 flex flex-col gap-4 hover:border-accent-secondary/30 transition-all border-white/5"
+                        className="glass-card !p-5 min-w-[300px] flex-shrink-0 flex flex-col gap-4 hover:border-accent-secondary/30 transition-all"
                     >
                         <div className="flex justify-between items-start">
-                            <div className="px-2 py-0.5 bg-white/5 rounded-full border border-white/10">
+                            <div className="px-2 py-0.5 bg-white/5 rounded-full">
                                 <span className="text-[10px] font-black uppercase tracking-[0.2em] opacity-40">
                                     {event.type}
                                 </span>

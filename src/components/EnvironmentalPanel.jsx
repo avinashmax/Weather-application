@@ -48,7 +48,7 @@ const EnvironmentalPanel = ({ current, astronomy }) => {
                         <Activity className="text-accent-primary" size={18} />
                         <h3 className="text-xs font-black uppercase tracking-widest opacity-60">Air Quality</h3>
                     </div>
-                    <div className={`px-3 py-1 rounded-full ${currentStatus.bg} border border-white/5`}>
+                    <div className={`px-3 py-1 rounded-full ${currentStatus.bg}`}>
                         <span className={`text-[8px] font-black uppercase tracking-widest ${currentStatus.color}`}>
                             {currentStatus.label}
                         </span>
@@ -59,7 +59,7 @@ const EnvironmentalPanel = ({ current, astronomy }) => {
                     <div className="text-4xl font-black tracking-tighter">{usEpaIndex}</div>
                     <div className="flex-1">
                         <div className="text-[9px] font-black uppercase tracking-widest text-white/20 mb-1">EPA Index</div>
-                        <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden flex gap-0.5">
+                        <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden flex">
                             {[1, 2, 3, 4].map((i) => (
                                 <div
                                     key={i}
@@ -71,11 +71,11 @@ const EnvironmentalPanel = ({ current, astronomy }) => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 mt-4">
-                    <div className="bg-white/5 p-2 rounded-xl border border-white/10">
+                    <div className="bg-white/5 p-2 rounded-xl">
                         <p className="text-white/20 text-[7px] font-black uppercase tracking-widest">PM2.5</p>
                         <p className="text-xs font-bold">{Math.round(aqi.pm2_5 || 0)}</p>
                     </div>
-                    <div className="bg-white/5 p-2 rounded-xl border border-white/10">
+                    <div className="bg-white/5 p-2 rounded-xl">
                         <p className="text-white/20 text-[7px] font-black uppercase tracking-widest">O3</p>
                         <p className="text-xs font-bold">{Math.round(aqi.o3 || 0)}</p>
                     </div>

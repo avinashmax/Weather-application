@@ -33,7 +33,7 @@ const HistoryView = ({ data }) => {
                 </div>
 
                 <div className="relative h-40 w-full mt-4">
-                    <svg className="w-full h-full overflow-visible">
+                    <svg className="w-full h-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
                         <defs>
                             <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="var(--accent-primary)" stopOpacity="0.4" />
@@ -53,7 +53,7 @@ const HistoryView = ({ data }) => {
                             points={getChartPoints()}
                             fill="none"
                             stroke="var(--accent-primary)"
-                            strokeWidth="3"
+                            strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             className="drop-shadow-[0_0_8px_var(--accent-primary)]"
@@ -66,28 +66,30 @@ const HistoryView = ({ data }) => {
                             return (
                                 <g key={i}>
                                     <circle
-                                        cx={`${x}%`}
-                                        cy={`${y}%`}
-                                        r="4"
+                                        cx={x}
+                                        cy={y}
+                                        r="2.5"
                                         fill="white"
                                         stroke="var(--accent-primary)"
-                                        strokeWidth="2"
+                                        strokeWidth="1.5"
                                     />
                                     <text
-                                        x={`${x}%`}
-                                        y={`${y - 12}%`}
+                                        x={x}
+                                        y={y - 8}
                                         textAnchor="middle"
                                         fill="white"
-                                        className="text-[11px] font-black font-sans"
+                                        className="text-[10px] font-black font-sans"
+                                        style={{ fontSize: '6px' }}
                                     >
                                         {Math.round(temp)}°
                                     </text>
                                     <text
-                                        x={`${x}%`}
-                                        y="100%"
+                                        x={x}
+                                        y="105"
                                         textAnchor="middle"
                                         fill="rgba(255,255,255,0.4)"
-                                        className="text-[9px] font-bold uppercase tracking-widest"
+                                        className="text-[8px] font-bold uppercase tracking-widest"
+                                        style={{ fontSize: '5px' }}
                                     >
                                         {new Date(data[i].forecast.forecastday[0].date).toLocaleDateString(undefined, { weekday: 'short' })}
                                     </text>

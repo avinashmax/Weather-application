@@ -29,7 +29,7 @@ const Forecast = ({ data }) => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}
-                        className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] transition-all group"
+                        className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] transition-all group"
                     >
                         <span className="font-black text-lg uppercase tracking-wider text-accent-primary leading-tight mb-1">
                             {new Date(day.date).toLocaleDateString(undefined, { weekday: 'short' })}
@@ -59,7 +59,7 @@ const Forecast = ({ data }) => {
             </div>
 
             <div className="mt-auto pt-6">
-                <div className="p-4 rounded-2xl bg-accent-primary/5 border border-accent-primary/10">
+                <div className="p-4 rounded-2xl bg-accent-primary/5">
                     <p className="text-[10px] uppercase font-bold text-accent-primary tracking-widest mb-1">Observation</p>
                     <p className="text-xs text-white/50 leading-relaxed">
                         Data provided by WeatherAPI. Accurate for the next 72 hours.

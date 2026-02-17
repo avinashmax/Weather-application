@@ -53,7 +53,7 @@ const CurrentWeather = ({ data }) => {
                         <img
                             src={current.condition.icon}
                             alt={current.condition.text}
-                            className="w-16 h-16 rounded-2xl shadow-lg ring-1 ring-white/20"
+                            className="w-16 h-16 rounded-2xl"
                         />
                         <div className="text-right">
                             <p className="text-2xl font-bold tracking-tight">{current.condition.text}</p>
