@@ -164,19 +164,36 @@ function App() {
               animate={{ opacity: 1, scale: 1 }}
               className="flex-1 flex flex-col items-center justify-center py-20"
             >
-              <div className="glass-card p-12 flex flex-col items-center max-w-md text-center">
+              <div className="glass-card p-12 flex flex-col items-center max-w-md text-center border-red-500/20 shadow-[0_0_50px_rgba(239,68,68,0.1)]">
                 <div className="bg-red-500/10 p-4 rounded-full mb-6">
                   <AlertCircle size={48} className="text-red-400" />
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Sync Interrupted</h3>
-                <p className="text-white/50 mb-8">{error}</p>
-                <button
-                  onClick={() => fetchWeatherData(weatherData?.location?.name || 'London')}
-                  className="flex items-center gap-2 px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all hover:scale-105 active:scale-95"
-                >
-                  <RefreshCw size={18} />
-                  <span>Try Again</span>
-                </button>
+                <p className="text-white/50 mb-8">
+                  {error.includes('API key') || error.includes('401')
+                    ? "Your API key appears to be invalid or restricted. Please check your WeatherAPI dashboard."
+                    : error}
+                </p>
+                <div className="flex flex-col gap-4 w-full">
+                  <button
+                    onClick={() => fetchWeatherData(weatherData?.location?.name || 'London')}
+                    className="flex items-center justify-center gap-2 px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all hover:scale-105 active:scale-95"
+                  >
+                    <RefreshCw size={18} />
+                    <span>Try Again</span>
+                  </button>
+
+                  {(error.includes('API key') || error.includes('401')) && (
+                    <a
+                      href="https://www.weatherapi.com/my/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-medium tracking-widest text-accent-primary uppercase hover:opacity-80 transition-opacity"
+                    >
+                      WeatherAPI Dashboard →
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ) : (
